@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        .heading {
+            text-align: center;
+            text-decoration: underline;
+        }
+
+        .ol {
+            font-size: 400px;
+        }
+
+        .button {
+            margin-left: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1 class="heading">To-do List</h1><br><br> 
+        <label><b>Enter to-do task: </b></label>
+        <input id="ele" type="text" placeholder="Enter task to add" />
+        <button onclick="addItem()">Add TO-DO</button>&emsp;&emsp;&emsp;&emsp;&emsp;
+        <label><b>Update to-do task: </b></label>
+        <input id="updt" type="text" placeholder="Enter task to update" /> 
+        <h3><ol id="to-do-list"></ol></h3>
+        
+        <script>
+            function addItem() {
+                // const newItem = document.getElementById("ele");
+                const newItem = document.querySelector("#ele").value
+                console.log("Item: ", newItem);
+                let prevHtml = document.getElementById("to-do-list").innerHTML;
+                document.querySelector("ol").innerHTML = prevHtml + "<li>" + newItem 
+                    + '<button onclick="removeItem(this)">Delete</button>&emsp;'
+                    + '<button onclick="updateItem(this)">Update</button>' 
+                    + "<br></li>";
+            }
+
+            function removeItem(button) {
+                let htmlTaskList = document.getElementById("to-do-list");
+                console.log(htmlTaskList, button.parentNode);
+                htmlTaskList.removeChild(button.parentNode);
+            }
+
+            function updateItem(button) {
+                button.parentNode.firstChild.textContent = document.querySelector("#updt").value
+                console.log(button.parentNode.firstChild, " + ", document.querySelector("#updt").value)
+            }
+        </script>
+    </div>
+</body>
+</html>

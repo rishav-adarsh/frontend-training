@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p id="test">Test 1</p>
+    <p id="test" class="myclass">Test 2</p>
+    <p class="myclass">Test 3</p>
+    <p id="sample">Some content</p>
+    <button onclick="testFunc()">Click for Change</button>
+    <script>
+        console.log(document.getElementById("test"));
+        console.log(document.getElementsByTagName("p"));
+        console.log(document.getElementsByClassName("myclass"));
+
+        console.log(document.querySelector("#test"));
+        console.log(document.querySelector(".myclass"));
+        console.log(document.querySelector("p"));
+
+        console.log(document.querySelectorAll("#test"));
+        console.log(document.querySelectorAll(".myclass"));
+        console.log(document.querySelectorAll("p"));
+
+        function testFunc() {
+            // alert("Before Alert");
+            // document.getElementById("sample").innerHTML = "Content Changed";
+            // alert("After Alert");
+            // In both the cases the content will be changed after the alert has been closed
+
+            // document.querySelector("p").innerText = "updated <b>content</b>"; // only used for plain text
+            document.querySelector("p").innerHTML = "updated <b>content</b>"; // for html formatted content
+        }
+    //   testFunc();
+    </script>
+</body>
+
+</html>

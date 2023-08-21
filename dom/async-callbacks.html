@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // callbacks is not being called by us, rather it is called by some other function
+        // returns both responses
+        function asyncWithCallbacks(callback1, callback2) {
+            setTimeout(function () {
+                callback1();
+            }, 1000);
+            setTimeout(function () {
+                callback2();
+            }, 3000);
+        }
+
+        asyncWithCallbacks(
+            function () {
+                console.log("callback 1");
+            },
+            function () {
+                console.log("callback 2");
+            }
+        );
+    </script>
+
+</body>
+
+</html>

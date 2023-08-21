@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // to access the current object instance : this
+      const user = {
+        name: "john",
+        age: 12,
+        greeting: function () {
+          console.log("OUTSIDE", this); // user object
+          const self = this; // lexical scoping
+          setTimeout(() => {
+            console.log("INSIDE", this, self); // window object (without arrow)
+            console.log("hello from", self.name);
+          }, 1000);
+        },
+      };
+
+      user.greeting();
+      user.name = "demo";
+      user.greeting();
+      // how to access an object
+      // dot technique
+      console.log(user.name);
+      // bracket technique (used to work with dynamic properties)
+      console.log(user["name"]);
+    </script>
+  </body>
+</html>

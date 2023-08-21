@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // SYNC => ASYNC
+      // SYNC : JS RUNTIME
+      // ASYNC : Browser
+      console.log("app started");
+
+      // this function will not be executed onto the stack
+      // instead a new thread will be created by the browser to execute it
+      setTimeout(function () {
+        console.log("some task here 1");
+      }, 2000);
+
+      setTimeout(function () {
+        console.log("some task here 2");
+      }, 1000);
+
+      console.log("app finished");
+      console.log("app finished 2");
+      console.log("app finished 3");
+      console.log("app finished 4");
+    </script>
+  </body>
+</html>

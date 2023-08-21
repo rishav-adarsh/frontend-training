@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button onclick="openNewWindow()">New Window</button>
+    <button onclick="sameWindow()">Same Window redirect</button>
+    <button onclick="previousPage()">Previous Page</button>
+    <button onclick="nextPage()">Next Page</button>
+
+    <script>
+        function openNewWindow() {
+            window.open("https://google.com");
+        }
+        function sameWindow() {
+            location.assign("https://google.com");
+        }
+        function previousPage() {
+            history.back();
+        }
+        function nextPage() {
+            history.forward();
+        }
+    </script>
+
+</body>
+
+</html>

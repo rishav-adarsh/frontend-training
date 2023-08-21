@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form>
+        <input type="text" placeholder="name" id="txtName" />
+        <input type="text" placeholder="email" id="txtEmail" />
+        <button type="submit" disabled>Submit</button>
+    </form>
+    <script>
+        function addEvent() {
+            document.querySelector("form").addEventListener("submit", saveData);
+            // removeEventListener
+            // document.getElementById("test").innerHTML =
+            //   '<button onclick="func()">Test</button>';
+        }
+        function saveData() {
+            event.preventDefault();
+            const txtEmail = document.querySelector("#txtEmail");
+            const txtName = document.querySelector("#txtName");
+            if (txtEmail.value === "" || txtName.value === "") {
+                alert("enter all details");
+            } else {
+                alert("form submitted");
+            }
+        }
+    </script>
+
+</body>
+
+</html>

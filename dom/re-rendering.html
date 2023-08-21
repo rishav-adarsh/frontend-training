@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul></ul>
+    <button onclick="loadData()">Load</button>
+    <button onclick="refreshData()">Refresh</button>
+    <script>
+        function loadData() {
+            displayData(["A", "B", "C", "D"]);
+        }
+        function refreshData() {
+            displayData(["A", "B", "C", "D", "E", "F"]);  // here even after appending only two extra elements into the array but it is re-rendering all 6 elements
+        }
+        function displayData(data) {
+            const ele = document.querySelector("ul");
+            ele.innerHTML = "";
+            for (let emp of data) {
+                ele.innerHTML += "<li>" + emp + "</li>";
+            }
+        }
+    </script>
+</body>
+
+</html>

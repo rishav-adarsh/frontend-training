@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" onkeypress="testFunc()" onkeyup="testFunc()" onkeydown="testFunc()" />
+    <input id="txt" onkeypress="restrictText()" />
+    <!-- for onkeydown="restrictText()" delete key doesn't work here -->
+
+    <script>
+        function testFunc() {
+            console.log(event.type)
+        }
+
+        function restrictText() {
+            if(event.keyCode < 48  ||  event.keyCode > 57) {
+                event.preventDefault();
+            }
+        }
+    </script>
+</body>
+</html>

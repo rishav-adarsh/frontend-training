@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form onsubmit="testFunction()" onreset="testFunction()">
+        <input type="text" onfocus="testFunction()" />
+        <input type="text" onblur="testFunction()" />
+        <input type="text" onchange="testFunction()" />
+        <input type="text" onselect="testFunction()" />
+        <button type="submit">Submit</button>
+        <button type="reset">Reset</button>
+    </form>
+    <script>
+        function testFunction() {
+            event.preventDefault(); // need to do event.preventDefault() for submit to prevent reloading the page
+            console.log("Event", event.type);
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // spread operator : ...
+      // used to make immutable objects, arrays
+      const product = { id: 100, name: "test", price: 1200 };
+      let cart = [];
+      // cart.push(product); // copies the reference of product
+      // cart.push(Object.assign({},product)); // ES5
+      // cart.push({ ...product }); // ES6 : creating a new reference (immutable)
+      // debugger;
+      cart = [...cart, { ...product }]; // adding data into the array immutably
+      console.log(product);
+      console.log(cart);
+      cart[0].qty = 1;
+      debugger;
+      console.log(product);
+      console.log(cart);
+    </script>
+  </body>
+</html>

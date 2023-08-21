@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" />
+    <button onclick="writeText()">1</button>
+    <button onclick="writeText()">2</button>
+    <button onclick="writeText()">3</button>
+    <button onclick="writeText()">4</button>
+    <button onclick="writeText()">5</button>
+    <button onclick="writeText()">6</button>
+    <button onclick="writeText()">7</button>
+    <button onclick="writeText()">8</button>
+    <button onclick="writeText()">9</button>
+    <button onclick="writeText()">0</button><br><br><br>
+
+    <button onclick="testing(this)"> Click for testing</button>
+
+    <script>
+        const ele = document.querySelector("input");
+        function writeText() {
+            ele.value = event.target.innerText;
+        }
+
+        function testing(ele) {
+            console.log(ele);
+            console.log(event.target, "bothe are same only")
+        }
+    </script>
+</body>
+
+</html>

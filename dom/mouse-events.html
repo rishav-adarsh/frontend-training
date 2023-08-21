@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<button onmouseover="testFunc()">Mouse over</button>
+
+<body>
+    <button onclick="testFunc()">Click</button>
+    <button ondblclick="testFunc()">Dbl Click</button>
+    <button onmousemove="testFunc()">Mouse move</button>
+    <button onmouseout="testFunc()">Mouse out</button>
+    <button onmouseup="testFunc()">Mouse up</button>
+    <button onmousedown="testFunc()">Mouse down</button>
+    <script>
+        function testFunc() {
+            console.log("Event triggered", event.type);
+        }
+    </script>
+</body>
+
+</html>

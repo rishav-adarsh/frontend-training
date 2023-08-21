@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function user(firstname, lastname) {
+        return {
+          // property:value
+          firstname, // object literal
+          lastname, // property short-hand
+          fullname: firstname + " " + lastname,
+        };
+      }
+      // destructuring syntax
+      // const person = user("John", "Doe");
+      // const fullname = person.fullname;
+      // const name = person.fullname;
+      // {property:alias_name}
+      const { fullname: name, firstname, age } = user("John", "Doe");
+      // a variable will be declared assigning the value matching the property
+      // if the property does not exist, the variable will be still be defined but its value will be undefined
+      // in case of aliasing the property will not be defined as a variable instead the alias will be the variable here
+      console.log(name, firstname, age);
+    </script>
+  </body>
+</html>

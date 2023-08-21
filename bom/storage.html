@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function addStorage() {
+            const data = {name:"Mike", age:12};
+            // sessionStorage will retain the data as long as the browser is open
+            sessionStorage.setItem("data", JSON.stringify(data));
+        }
+
+        function retrieveStorage() {
+            // localStorage will persist the data as long as we want
+            let data = localStorage.getItem("data");
+            data = JSON.parse(data);
+            console.log(data);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // weakly typed
+      "use strict";
+      // variable declarations are optional
+      var a = 10; // number
+      a = "test"; // string : '',""
+      a = true; // boolean
+      a = {}; // object
+      var g = []; // array
+      // scopes of variable
+      // global scope
+      // var i = 5;
+      // console.log(i);
+      // // function scope
+      // function test(i) {
+      //   i = 10;
+      //   var j = 30;
+      //   console.log(i, j);
+      // }
+      // test(2);
+      // console.log(i, j);
+
+      // one single memory allocation
+      // for : scope of variable i is at for loop level
+      // let : block scope variable
+      // a new memory is created for each iteration
+      for (let i = 0; i < 10; i++) {
+        // for each iteration a new memory should be created
+        setTimeout(function () {
+          console.log("task", i);
+        }, 100 * i);
+      }
+      // always keep your data in immutable form
+      // on every data change, we should create a new memory
+      // const : read-only variable : can detect a change in reference but not in data changes
+      // primitive type : immutable by nature : number, string, boolean
+      const t = 10;
+      // t = 30;
+      // object & arrays are mutable by default
+      const obj = { name: "test", age: 12 }; // {:1 name:2,age:3 }
+      obj.name = "test"; // mutating the object does not change the object reference : {:1 name:21, age:3}
+      obj = { name: "hello" }; // creating a new object changes the reference (immutable)
+    </script>
+  </body>
+</html>
