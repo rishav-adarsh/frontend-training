@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body style="margin:50px;">
+    <h1 style="text-align: center;">Weather Forecast</h1>
+    <label>Enter city: </label>
+    <input id="city" type="text" placeholder="City name"/>
+    <button onclick="searchCity()">Search</button><br><br><br>
+    <div>
+        <table id="forecast">
+            <tr>
+                <th>Date</th>
+                <th>Avg Temp</th>
+                <th>Max Temp</th>
+                <th>Min Temp</th>
+                <th>Humidity</th>
+            </tr>
+        </table>
+    </div>
+    <script src="./main.js"></script>
+</body>
+</html>
