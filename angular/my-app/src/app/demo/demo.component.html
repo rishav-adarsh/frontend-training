@@ -1,0 +1,13 @@
+<h1>One way data binding</h1>
+<h2>String Interpolation</h2>
+<!-- converts everything into string -->
+<p>{{ demoData }}</p>
+<p>{{ 6 + 8 }}</p>
+<input type="text" value="{{demoData}}" />
+
+<h2>Property Binding : []</h2>
+<!-- retains the data type -->
+<input type="text" [value]="demoData" />
+
+<h2>Event Binding : ()</h2>
+<button (click)="showAlert()">Click here</button>
