@@ -1,12 +1,18 @@
 <div>
+  {{detectChange()}}
   <img [src]="data.productImage" />
   <h3>{{ data.productName | uppercase }}</h3>
   <h4>{{ data.productPrice | currency : "INR" : "code" : "2.1-1" }}</h4>
   <!-- use symbol or code above -->
-  <h4>{{data.productPrice | conversion:code | currency:code}}</h4>
-  <h4>Sale Price : {{data.productSalePrice | conversion:code | currency:code}}</h4>
+  <h4>{{ data.productPrice | conversion : code | currency : code }}</h4>
+  <!-- <h4>
+    Sale Price :
+    {{ data.productSalePrice | conversion : code | currency : code }}
+    <del>{{ data.productPrice | conversion : code | currency : code }}</del>
+  </h4> -->
+  <app-product-price [price]="data.productPrice" [sellingPrice]="data.productSalePrice" [code]="selectedCode"></app-product-price>
 
-  {{data.productPrice | discount}}
+  {{ data.productPrice | discount }}
   <!-- never use html to display anything
   those functions need to be converted into pipe -->
   <!-- {{discountCalculation()}} -->

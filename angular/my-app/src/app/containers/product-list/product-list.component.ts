@@ -1,12 +1,14 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { ProductType } from 'src/types';
 
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProductListComponent {
+  @Input() selectedCurrencyCode!: string;
   plist: ProductType[] = [
     {
       productId: 101,
@@ -30,5 +32,15 @@ export class ProductListComponent {
 
   addItem(data: any) {
     console.log('Item added to cart', data);
+  }
+
+  detectChange() {
+    console.log('detected change in product list');
+  }
+
+  changePrice() {
+    let product = this.plist[0];
+    product.productSalePrice = 900;
+    this.plist = [{ ...product }, this.plist[1]];
   }
 }

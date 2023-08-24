@@ -1,4 +1,7 @@
 <h1 id="heading">Welcome to the Angular Application</h1>
 <!-- <app-demo></app-demo> -->
 <!-- <app-product></app-product> -->
-<app-product-list></app-product-list>
+<!-- <app-product-list></app-product-list> -->
+<!-- <app-checkout></app-checkout> -->
+<app-currency (currencySelected)="fetchCurrency($event)"></app-currency>
+<app-product-list [selectedCurrencyCode]="currencyCode"></app-product-list>

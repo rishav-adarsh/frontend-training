@@ -1,4 +1,10 @@
 <p>product-list works!</p>
+<button (click)="changePrice()">Update Price</button>
+{{ detectChange() }}
 <div *ngFor="let item of plist">
-    <app-product [data]="item" (btnClick)="addItem($event)"></app-product>
+  <app-product
+    [data]="item"
+    (btnClick)="addItem($event)"
+    [selectedCode]="selectedCurrencyCode"
+  ></app-product>
 </div>
