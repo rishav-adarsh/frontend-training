@@ -17,16 +17,27 @@
 
   <label for>Email</label>
   <input type="text" formControlName="email" />
-  <div formGroupName="address">
+  <!-- <div formGroupName="address">
     <label for>City</label>
     <input type="text" formControlName="city" />
     <label for>Pincode</label>
-    <input type="text" formControlName="pincode" />
-    <!-- <small
+    <input type="text" formControlName="pincode" /> -->
+  <!-- <small
       *ngIf="checkoutForm.get('address')?.get('pincode')?.hasError('zipcode')"
     >
       Invalid Pincode
     </small> -->
+  <!-- </div> -->
+  <div formArrayName="address">
+    <button type="button" (click)="addAddress()">Add</button>
+    <!-- index is a predefined vairable used with *ngFor similar to $event -->
+    <div [formGroupName]="i" *ngFor="let ctrl of addressObj.controls; let i = index">
+      <label for>City</label>
+      <input type="text" formControlName="city" />
+      <label for>Pincode</label>
+      <input type="text" formControlName="pincode" />
+      <button type="button" (click)="removeAddress(i)">Remove</button>
+    </div>
   </div>
   <button type="submit">Submit</button>
 </form>

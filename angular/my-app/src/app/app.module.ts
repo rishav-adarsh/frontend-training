@@ -16,6 +16,9 @@ import {
   provideErrorTailorConfig,
 } from '@ngneat/error-tailor';
 import { CurrencyComponent } from './components/currency/currency.component';
+import { NumbersOnlyDirective } from './directives/numbers-only.directive';
+import { ImgFallbackDirective } from './directives/img-fallback.directive';
+import { HttpClientModule } from '@angular/common/http'
 
 // Deconrator() : to define the behaviour of the class
 @NgModule({
@@ -30,6 +33,8 @@ import { CurrencyComponent } from './components/currency/currency.component';
     ProductPriceComponent,
     CheckoutComponent,
     CurrencyComponent,
+    NumbersOnlyDirective,
+    ImgFallbackDirective,
   ],
   imports: [
     // modules
@@ -37,9 +42,12 @@ import { CurrencyComponent } from './components/currency/currency.component';
     AppRoutingModule,
     ReactiveFormsModule,
     errorTailorImports,
+    HttpClientModule,
   ],
   providers: [
     // services
+    // global : app.component.ts (shared services) : only one object will be created and will be used globally everywhere inside the project
+    // local : *.component.ts (http services) : the object will be created everytime we use it and got disposed after its usage
     provideErrorTailorConfig({
       errors: {
         useValue: {

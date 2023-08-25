@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {
   AbstractControl,
+  FormArray,
   FormControl,
   FormGroup,
   Validators,
@@ -22,13 +23,36 @@ export class CheckoutComponent {
         updateOn: 'change',
         validators: [Validators.required],
       }),
-      address: new FormGroup({
-        city: new FormControl(),
-        pincode: new FormControl(null, [this.zipcodeValidator()]),
-      }),
+      // address: new FormGroup({
+      //   city: new FormControl(),
+      //   pincode: new FormControl(null, [this.zipcodeValidator()]),
+      // }),
+      address: new FormArray([]),
     },
-    { updateOn: 'submit' }
+    // { updateOn: 'submit' },
+    { updateOn: 'change' },
+    
   );
+
+  // it act as a property/variable not as a function
+  get addressObj() {
+    return this.checkoutForm.get('address') as FormArray;
+  }
+
+  newAddress() {
+    return new FormGroup({
+      city: new FormControl(),
+      pincode: new FormControl(null, [this.zipcodeValidator()]),
+    });
+  }
+
+  addAddress() {
+    this.addressObj.push(this.newAddress());
+  }
+
+  removeAddress(index: number) {
+    this.addressObj.removeAt(index);
+  }
 
   zipcodeValidator() {
     return (control: AbstractControl) => {
@@ -48,6 +72,7 @@ export class CheckoutComponent {
   }
 
   submitForm() {
+    this.checkoutForm.markAllAsTouched();
     if (this.checkoutForm.valid) {
       console.log('form submission logic', this.checkoutForm.value);
     }

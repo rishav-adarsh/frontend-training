@@ -3,5 +3,13 @@
 <!-- <app-product></app-product> -->
 <!-- <app-product-list></app-product-list> -->
 <!-- <app-checkout></app-checkout> -->
+
+<!-- While taking the inpute variable name same as directive selector's name, we don't need to define any separate attributes -->
+<!-- <input type="text" appNumbersOnly="4" />
+<input type="text" [appNumbersOnly]="count" /> -->
+<!-- In case of taking a different variable name as @Input() maxCount -->
+<!-- <input type="text" appNumbersOnly maxCount="6">
+<input type="text" appNumbersOnly [maxCoutn]="count"> -->
+<br /><br />
 <app-currency (currencySelected)="fetchCurrency($event)"></app-currency>
 <app-product-list [selectedCurrencyCode]="currencyCode"></app-product-list>

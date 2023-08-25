@@ -9,6 +9,7 @@ export class AppComponent {
   title = 'my-app';
 
   currencyCode!: string;
+  count: number = 6;
 
   fetchCurrency(event: string) {
     console.log(event);
