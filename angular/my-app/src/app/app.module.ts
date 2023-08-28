@@ -18,7 +18,9 @@ import {
 import { CurrencyComponent } from './components/currency/currency.component';
 import { NumbersOnlyDirective } from './directives/numbers-only.directive';
 import { ImgFallbackDirective } from './directives/img-fallback.directive';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http';
+import { GithubSearchComponent } from './containers/github-search/github-search.component';
+import { ErrorPageComponent } from './containers/error-page/error-page.component'
 
 // Deconrator() : to define the behaviour of the class
 @NgModule({
@@ -35,6 +37,8 @@ import { HttpClientModule } from '@angular/common/http'
     CurrencyComponent,
     NumbersOnlyDirective,
     ImgFallbackDirective,
+    GithubSearchComponent,
+    ErrorPageComponent,
   ],
   imports: [
     // modules
@@ -46,7 +50,7 @@ import { HttpClientModule } from '@angular/common/http'
   ],
   providers: [
     // services
-    // global : app.component.ts (shared services) : only one object will be created and will be used globally everywhere inside the project
+    // global : app.component.ts (shared services) : only one object will be created and will be used globally everywhere inside the application
     // local : *.component.ts (http services) : the object will be created everytime we use it and got disposed after its usage
     provideErrorTailorConfig({
       errors: {

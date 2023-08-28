@@ -1,17 +1,35 @@
-import { ChangeDetectionStrategy, Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  DestroyRef,
+  Input,
+  OnChanges,
+  OnDestroy,
+  OnInit,
+  SimpleChanges,
+  inject,
+} from '@angular/core';
+import { Observable, Subscription } from 'rxjs';
+import { CurrencyService } from 'src/app/services/currency.service';
 import { ProductService } from 'src/app/services/product.service';
 import { ProductType } from 'src/types';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.css'],
   // changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [ProductService],
+  providers: [ProductService], // local scope
 })
-export class ProductListComponent implements OnChanges, OnInit {
-  @Input() selectedCurrencyCode!: string;
+export class ProductListComponent implements OnChanges, OnInit, OnDestroy {
+  // @Input() selectedCurrencyCode!: string;
+  selectedCurrencyCode!: string;
   plist: ProductType[] = [];
+  currency$!: Subscription;
+  destroyRef = inject(DestroyRef);
+  curr$: Observable<string>;
+  product$: Observable<ProductType[]>;
   // plist: ProductType[] = [
   //   {
   //     productId: 101,
@@ -34,15 +52,30 @@ export class ProductListComponent implements OnChanges, OnInit {
   //   },
   // ];
 
-  constructor(private productService : ProductService) {}
+  constructor(
+    private productService: ProductService,
+    private currencyService: CurrencyService
+  ) {
+    this.curr$ = this.currencyService.currencyObservable;
+    this.product$ = this.productService.getProducts();
+  }
 
   ngOnInit(): void {
-    this.getData();
+    // this.getData();
+    // this.currency$ = this.currencyService.currencyObservable.subscribe(
+    //   (code) => (this.selectedCurrencyCode = code)
+    // );
+    this.currencyService.currencyObservable
+      .pipe(takeUntilDestroyed(this.destroyRef))
+      .subscribe((code) => (this.selectedCurrencyCode = code));
   }
 
   ngOnChanges(changes: SimpleChanges): void {
     console.log(changes);
-    
+  }
+
+  ngOnDestroy(): void {
+    // this.currency$.unsubscribe();
   }
 
   getData() {
@@ -69,11 +102,11 @@ export class ProductListComponent implements OnChanges, OnInit {
     // let product = this.plist[0];
     // product.productSalePrice = 900;
     // this.plist = [{ ...product }, this.plist[1]];
-    this.plist = this.plist.map((item,index) => {
-      if(index === 0) {
+    this.plist = this.plist.map((item, index) => {
+      if (index === 0) {
         item.productSalePrice = 900;
       }
       return item;
-    })
+    });
   }
 }

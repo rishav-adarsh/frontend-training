@@ -8,7 +8,7 @@ import { ProductType } from 'src/types';
 //   providedIn: 'root'  // alternative method to register it globally
 // })
 
-@Injectable() // not created globally here
+@Injectable() // not created globally here by removing {providedIn: 'root'} : local scope
 export class ProductService {
   constructor(private http: HttpClient) {}
 

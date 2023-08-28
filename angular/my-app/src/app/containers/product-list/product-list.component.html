@@ -1,10 +1,15 @@
 <p>product-list works!</p>
-<button (click)="changePrice()">Update Price</button>
+<!-- <button (click)="changePrice()">Update Price</button> -->
 {{ detectChange() }}
-<div *ngFor="let item of plist">
-  <app-product
-    [data]="item"
-    (btnClick)="addItem($event)"
-    [selectedCode]="selectedCurrencyCode"
-  ></app-product>
+<div class="row" *ngIf="curr$ | async as mycode">
+  <div *ngFor="let item of product$ | async">
+    <app-product
+      [data]="item"
+      (btnClick)="addItem($event)"
+      [selectedCode]="mycode"
+    ></app-product>
+  </div>
 </div>
+
+<!-- [selectedCode]="selectedCurrencyCode" -->
+<!-- async pipe is used to auto unsubscribe  -->

@@ -11,5 +11,21 @@
 <!-- <input type="text" appNumbersOnly maxCount="6">
 <input type="text" appNumbersOnly [maxCoutn]="count"> -->
 <br /><br />
-<app-currency (currencySelected)="fetchCurrency($event)"></app-currency>
-<app-product-list [selectedCurrencyCode]="currencyCode"></app-product-list>
+
+<ul>
+    <!-- <li><a href="/">Home</a></li>
+    <li><a href="/products">Products</a></li>
+    <li><a href="/checkout">Checkout</a></li> -->
+    <!-- To prevent reloading the whole page use routerLink inplace of href -->
+    <li><a routerLink="/">Home</a></li>
+    <li><a routerLink="/products">Products</a></li>
+    <li><a routerLink="/checkout">Checkout</a></li>
+</ul>
+
+<!-- <app-currency (currencySelected)="fetchCurrency($event)"></app-currency> -->
+<app-currency></app-currency>
+<!-- <router-outlet> comes from RouterModule -->
+<router-outlet></router-outlet> 
+<!-- <app-product-list [selectedCurrencyCode]="currencyCode"></app-product-list> -->
+<!-- <app-product-list></app-product-list> -->
+<!-- <app-github-search></app-github-search> -->
