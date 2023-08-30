@@ -20,7 +20,8 @@ import { NumbersOnlyDirective } from './directives/numbers-only.directive';
 import { ImgFallbackDirective } from './directives/img-fallback.directive';
 import { HttpClientModule } from '@angular/common/http';
 import { GithubSearchComponent } from './containers/github-search/github-search.component';
-import { ErrorPageComponent } from './containers/error-page/error-page.component'
+import { ErrorPageComponent } from './containers/error-page/error-page.component';
+import ProductDetailComponent from './containers/product-detail/product-detail.component';
 
 // Deconrator() : to define the behaviour of the class
 @NgModule({
@@ -39,9 +40,10 @@ import { ErrorPageComponent } from './containers/error-page/error-page.component
     ImgFallbackDirective,
     GithubSearchComponent,
     ErrorPageComponent,
+    ProductDetailComponent,
   ],
   imports: [
-    // modules
+    // eagerly loaded modules
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,

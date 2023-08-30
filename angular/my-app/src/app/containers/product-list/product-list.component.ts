@@ -14,6 +14,7 @@ import { CurrencyService } from 'src/app/services/currency.service';
 import { ProductService } from 'src/app/services/product.service';
 import { ProductType } from 'src/types';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-product-list',
@@ -54,7 +55,8 @@ export class ProductListComponent implements OnChanges, OnInit, OnDestroy {
 
   constructor(
     private productService: ProductService,
-    private currencyService: CurrencyService
+    private currencyService: CurrencyService,
+    private router: Router,
   ) {
     this.curr$ = this.currencyService.currencyObservable;
     this.product$ = this.productService.getProducts();
@@ -92,6 +94,8 @@ export class ProductListComponent implements OnChanges, OnInit, OnDestroy {
 
   addItem(data: any) {
     console.log('Item added to cart', data);
+    this.router.navigateByUrl('/cart');
+    // this.router.navigate(['/cart'])
   }
 
   detectChange() {
