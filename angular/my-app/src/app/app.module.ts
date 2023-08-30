@@ -18,12 +18,16 @@ import {
 import { CurrencyComponent } from './components/currency/currency.component';
 import { NumbersOnlyDirective } from './directives/numbers-only.directive';
 import { ImgFallbackDirective } from './directives/img-fallback.directive';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { GithubSearchComponent } from './containers/github-search/github-search.component';
 import { ErrorPageComponent } from './containers/error-page/error-page.component';
 import ProductDetailComponent from './containers/product-detail/product-detail.component';
+import { LoginButtonsComponent } from './components/login-buttons/login-buttons.component';
+import { HttpLoaderInterceptor } from './services/http-loader.interceptor';
+import { LoaderModule } from './loader/loader.module';
+import { UiModule } from './ui/ui.module';
 
-// Deconrator() : to define the behaviour of the class
+// Decorator() : to define the behaviour of the class
 @NgModule({
   declarations: [
     // components, directives, pipes
@@ -41,6 +45,7 @@ import ProductDetailComponent from './containers/product-detail/product-detail.c
     GithubSearchComponent,
     ErrorPageComponent,
     ProductDetailComponent,
+    LoginButtonsComponent,
   ],
   imports: [
     // eagerly loaded modules
@@ -49,11 +54,18 @@ import ProductDetailComponent from './containers/product-detail/product-detail.c
     ReactiveFormsModule,
     errorTailorImports,
     HttpClientModule,
+    UiModule,
+    LoaderModule,
   ],
   providers: [
     // services
     // global : app.component.ts (shared services) : only one object will be created and will be used globally everywhere inside the application
     // local : *.component.ts (http services) : the object will be created everytime we use it and got disposed after its usage
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpLoaderInterceptor,
+      multi: true,
+    },
     provideErrorTailorConfig({
       errors: {
         useValue: {

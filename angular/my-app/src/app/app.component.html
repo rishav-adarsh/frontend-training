@@ -12,6 +12,8 @@
 <input type="text" appNumbersOnly [maxCoutn]="count"> -->
 <br /><br />
 
+<app-login-buttons></app-login-buttons>
+
 <ul>
     <!-- <li><a href="/">Home</a></li>
     <li><a href="/products">Products</a></li>
@@ -24,6 +26,7 @@
 
 <!-- <app-currency (currencySelected)="fetchCurrency($event)"></app-currency> -->
 <app-currency></app-currency>
+<app-loader></app-loader>
 <!-- <router-outlet> comes from RouterModule -->
 <router-outlet></router-outlet> 
 <!-- <app-product-list [selectedCurrencyCode]="currencyCode"></app-product-list> -->
