@@ -20,7 +20,7 @@ const routes: Routes = [
   // abc.com/checkout
   { path: 'checkout', component: CheckoutComponent, canActivate: [authGuard] },
   // abc.com/user
-  // lazily laoded modules : only loading the UserModule when it's required and hence making other functionalities fast
+  // lazy laoded modules : only loading the UserModule when it's required and hence making other functionalities fast
   {
     path: 'user',
     loadChildren: () => import('./user/user.module').then((m) => m.UserModule),
