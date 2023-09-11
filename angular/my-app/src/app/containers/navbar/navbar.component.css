@@ -1,0 +1,22 @@
+/* .example-spacer {
+  flex: 1 1 auto;
+}
+
+button {
+    margin-left: 3%;
+    font-size: large;
+}
+
+button:hover {
+    font-weight: bolder;
+} */
+
+nav {
+  height: 6%;
+}
+
+a {
+  margin: 2%;
+  font-size: large;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}

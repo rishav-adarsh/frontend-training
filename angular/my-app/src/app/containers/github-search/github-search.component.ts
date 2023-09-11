@@ -32,13 +32,18 @@ export class GithubSearchComponent {
       .pipe(
         debounceTime(500), // the subscribe() will execute only if there's a pause of more than 500ms between the keystrokes
         distinctUntilChanged(), // will execute only when the value differs from the last value it searched for
-        switchMap((val) => this.searchService.searchRepos(val)) // .subsribe() will be managed by rxjs's switchMap to cancel out non-required older requests if they have not completed from the client side
+        // switchMap((val) => this.searchService.searchRepos(val)) // .subsribe() will be managed by rxjs's switchMap to cancel out non-required older requests if they have not completed from the client side
       )
       .subscribe((value) => {
         console.log(value);
         // this.getRepos(value);  //  will be managed by rxjs's switchMap
 
-        this.router.navigate([], { queryParams: { q: this.search.value } });
+        this.router.navigate([], { 
+          queryParams: { q: this.search.value },
+          relativeTo: this.activeRoute,
+          queryParamsHandling: 'merge', // preserve the existing query params in the route
+          skipLocationChange: false, // do not trigger navigation
+         });
         // this.router.navigateByUrl('/github?q=' + this.search.value);
       });
   }

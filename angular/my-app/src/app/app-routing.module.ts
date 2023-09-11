@@ -7,6 +7,7 @@ import { ErrorPageComponent } from './containers/error-page/error-page.component
 import ProductDetailComponent from './containers/product-detail/product-detail.component';
 import { GithubSearchComponent } from './containers/github-search/github-search.component';
 import { authGuard } from './services/auth.guard';
+import CartListComponent from './containers/cart-list/cart-list.component';
 
 const routes: Routes = [
   // abc.com
@@ -30,6 +31,7 @@ const routes: Routes = [
     loadChildren: () =>
       import('./user/orders/orders.module').then((m) => m.OrdersModule),
   },
+  { path: 'cart', component: CartListComponent },
   // 404 Page : this is always the last one in the sequence
   { path: '**', component: ErrorPageComponent },
 ];

@@ -10,7 +10,6 @@ export class ImgFallbackDirective {
   @HostListener('error', ['$event'])
   switchToFallBack(event: Event) {
     const imgTag = event.target as HTMLImageElement;
-    imgTag.src =
-      'https://st.depositphotos.com/2934765/53192/v/450/depositphotos_531920820-stock-illustration-photo-available-vector-icon-default.jpg';
+    imgTag.src = 'https://www.ncenet.com/wp-content/uploads/2020/04/No-image-found.jpg'
   }
 }

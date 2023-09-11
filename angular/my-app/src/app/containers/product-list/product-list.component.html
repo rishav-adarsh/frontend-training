@@ -1,15 +1,38 @@
-<p>product-list works!</p>
 <!-- <button (click)="changePrice()">Update Price</button> -->
 {{ detectChange() }}
+<select
+  class="form-select"
+  aria-label="Default select example"
+  name="sortby"
+  id=""
+  (change)="onChange($event)"
+>
+  <option selected>Sort By</option>
+  <option value="name">Name</option>
+  <option value="price">Price</option>
+</select>
 <div class="row" *ngIf="curr$ | async as mycode">
-  <div *ngFor="let item of product$ | async">
-    <app-product
-      [data]="item"
-      (btnClick)="addItem($event)"
-      [selectedCode]="mycode"
-    ></app-product>
+  <div class="row">
+    <div
+      *ngFor="
+        let item of product$
+          | async
+          | search : searchQuery
+          | sort : sortQuery
+          | pagination : 20 : currentPageno
+      "
+      class="col-md-3 my-3"
+    >
+      <app-product
+        [data]="item"
+        (btnClick)="addItem($event)"
+        [selectedCode]="mycode"
+      ></app-product>
+    </div>
   </div>
 </div>
+
+<app-page-buttons></app-page-buttons>
 
 <!-- [selectedCode]="selectedCurrencyCode" -->
 <!-- async pipe is used to auto unsubscribe  -->

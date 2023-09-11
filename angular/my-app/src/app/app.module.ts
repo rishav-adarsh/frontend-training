@@ -26,6 +26,20 @@ import { LoginButtonsComponent } from './components/login-buttons/login-buttons.
 import { HttpLoaderInterceptor } from './services/http-loader.interceptor';
 import { LoaderModule } from './loader/loader.module';
 import { UiModule } from './ui/ui.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NavbarComponent } from './containers/navbar/navbar.component';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatCardModule } from '@angular/material/card';
+import { MatInputModule } from '@angular/material/input';
+import { SearchPipe } from './pipes/search.pipe';
+import { SortPipe } from './pipes/sort.pipe';
+import { PaginationPipe } from './pipes/pagination.pipe';
+import { PageButtonsComponent } from './components/page-buttons/page-buttons.component';
+import CartListComponent from './containers/cart-list/cart-list.component';
+import { CartItemComponent } from './components/cart-item/cart-item.component';
 
 // Decorator() : to define the behaviour of the class
 @NgModule({
@@ -46,6 +60,13 @@ import { UiModule } from './ui/ui.module';
     ErrorPageComponent,
     ProductDetailComponent,
     LoginButtonsComponent,
+    NavbarComponent,
+    SearchPipe,
+    SortPipe,
+    PaginationPipe,
+    PageButtonsComponent,
+    CartListComponent,
+    CartItemComponent,
   ],
   imports: [
     // eagerly loaded modules
@@ -56,6 +77,13 @@ import { UiModule } from './ui/ui.module';
     HttpClientModule,
     UiModule,
     LoaderModule,
+    BrowserAnimationsModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatIconModule,
+    MatGridListModule,
+    MatCardModule,
+    MatInputModule,
   ],
   providers: [
     // services

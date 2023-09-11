@@ -1,14 +1,15 @@
-<div>
-  {{ detectChange() }}
+{{ detectChange() }}
+<div class="shadow p-4 bg-white rounded border border-dark-subtle" style="margin-left: 7%;">
   <img
     [src]="data.productImage"
     [routerLink]="['/detail', data.productId]"
     [queryParams]="{ size: 'm', rating: '4' }"
+    class="img-thumbnail"
   />
-  <h3>{{ data.productName | uppercase }}</h3>
-  <h4>{{ data.productPrice | currency : "INR" : "code" : "2.1-1" }}</h4>
+  <h4 class="fs-6 my-2">{{ data.productName | uppercase }}</h4>
+  <!-- <h4>{{ data.productPrice | currency : "INR" : "code" : "2.1-1" }}</h4> -->
   <!-- use symbol or code above -->
-  <h4>{{ data.productPrice | conversion : code | currency : code }}</h4>
+  <!-- <h4>{{ data.productPrice | conversion : code | currency : code }}</h4> -->
   <!-- <h4>
     Sale Price :
     {{ data.productSalePrice | conversion : code | currency : code }}
@@ -24,9 +25,13 @@
   <!-- never use html to display anything
   those functions need to be converted into pipe -->
   <!-- {{discountCalculation()}} -->
+  <br />
   <button
-    (click)="notifyParent($event)"
+    type="button"
+    class="btn btn-primary"
+    (click)="addToCart($event)"
     *ngIf="data.productStock > 0; else stock"
+    style="margin: 2%; width: 90%"
   >
     Add to Cart
   </button>

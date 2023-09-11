@@ -1,0 +1,11 @@
+<nav aria-label="Page navigation example">
+  <ul class="pagination justify-content-center">
+    <li class="page-item"><a (click)="setPage($event)" class="page-link" >Previous</a></li>
+    <div *ngFor="let pg of pages">
+      <li class="page-item">
+        <a class="page-link" (click)="setPage($event)">{{ pg }}</a>
+      </li>
+    </div>
+    <li class="page-item"><a (click)="setPage($event)" class="page-link">Next</a></li>
+  </ul>
+</nav>

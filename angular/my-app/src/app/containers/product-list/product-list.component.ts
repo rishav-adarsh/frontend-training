@@ -14,7 +14,7 @@ import { CurrencyService } from 'src/app/services/currency.service';
 import { ProductService } from 'src/app/services/product.service';
 import { ProductType } from 'src/types';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-product-list',
@@ -25,6 +25,9 @@ import { Router } from '@angular/router';
 })
 export class ProductListComponent implements OnChanges, OnInit, OnDestroy {
   // @Input() selectedCurrencyCode!: string;
+  searchQuery!: string | null;
+  sortQuery!: string | null;
+  currentPageno: number = 0;
   selectedCurrencyCode!: string;
   plist: ProductType[] = [];
   currency$!: Subscription;
@@ -57,9 +60,23 @@ export class ProductListComponent implements OnChanges, OnInit, OnDestroy {
     private productService: ProductService,
     private currencyService: CurrencyService,
     private router: Router,
+    private activeRoute: ActivatedRoute
   ) {
     this.curr$ = this.currencyService.currencyObservable;
     this.product$ = this.productService.getProducts();
+    this.activeRoute.queryParamMap.subscribe((par) => {
+      if (par.has('q')) {
+        this.searchQuery = par.get('q');
+      }
+      if (par.has('sortBy')) {
+        console.log('sort by working');
+        this.sortQuery = par.get('sortBy');
+      }
+      if (par.has('pageno')) {
+        this.currentPageno = Number(par.get('pageno'));
+      }
+      console.log('Activated route working');
+    });
   }
 
   ngOnInit(): void {
@@ -111,6 +128,16 @@ export class ProductListComponent implements OnChanges, OnInit, OnDestroy {
         item.productSalePrice = 900;
       }
       return item;
+    });
+  }
+
+  onChange(event: Event) {
+    let ele = event.target as HTMLSelectElement;
+    this.router.navigate([], { 
+      relativeTo: this.activeRoute,
+      queryParams: { sortBy: ele.value } ,
+      queryParamsHandling: 'merge', // preserve the existing query params in the route
+      skipLocationChange: false, // do not trigger navigation
     });
   }
 }

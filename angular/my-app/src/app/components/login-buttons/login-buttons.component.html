@@ -1,4 +1,9 @@
-<button (click)="authService.logout()" *ngIf="user$ | async; else login">Logout</button>
+<!-- <button mat-raised-button color="warn" (click)="authService.logout()" *ngIf="user$ | async; else login">Logout</button>
 <ng-template #login>
-    <a routerLink="/user/login" >Login</a>
+    <button mat-raised-button color="primary" routerLink="/user/login">Login</button>
+</ng-template> -->
+
+<button type="button" class="btn btn-danger" (click)="authService.logout()" *ngIf="user$ | async; else login">Logout</button>
+<ng-template #login>
+    <button type="button" class="btn btn-success">Login</button>
 </ng-template>
