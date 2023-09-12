@@ -15,6 +15,7 @@
     {{ data.productSalePrice | conversion : code | currency : code }}
     <del>{{ data.productPrice | conversion : code | currency : code }}</del>
   </h4> -->
+  Sale Price : 
   <app-product-price
     [price]="data.productPrice"
     [sellingPrice]="data.productSalePrice"

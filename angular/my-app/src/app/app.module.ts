@@ -28,12 +28,6 @@ import { LoaderModule } from './loader/loader.module';
 import { UiModule } from './ui/ui.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavbarComponent } from './containers/navbar/navbar.component';
-import { MatIconModule } from '@angular/material/icon';
-import { MatButtonModule } from '@angular/material/button';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatGridListModule } from '@angular/material/grid-list';
-import { MatCardModule } from '@angular/material/card';
-import { MatInputModule } from '@angular/material/input';
 import { SearchPipe } from './pipes/search.pipe';
 import { SortPipe } from './pipes/sort.pipe';
 import { PaginationPipe } from './pipes/pagination.pipe';
@@ -78,12 +72,6 @@ import { CartItemComponent } from './components/cart-item/cart-item.component';
     UiModule,
     LoaderModule,
     BrowserAnimationsModule,
-    MatToolbarModule,
-    MatButtonModule,
-    MatIconModule,
-    MatGridListModule,
-    MatCardModule,
-    MatInputModule,
   ],
   providers: [
     // services

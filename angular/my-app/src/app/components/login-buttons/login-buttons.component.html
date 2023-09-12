@@ -5,5 +5,5 @@
 
 <button type="button" class="btn btn-danger" (click)="authService.logout()" *ngIf="user$ | async; else login">Logout</button>
 <ng-template #login>
-    <button type="button" class="btn btn-success">Login</button>
+    <button type="button" class="btn btn-success" routerLink="/user/login">Login</button>
 </ng-template>

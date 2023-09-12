@@ -1,25 +1,42 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-  <a class="navbar-brand" href="#"></a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+  <a class="navbar-brand" routerLink="/"
+    ><i class="bi bi-bag-fill" style="size: 1000"></i
+  ></a>
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarNav"
+    aria-controls="navbarNav"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
       <li class="nav-item active">
-        <a class="nav-link" routerLink="/">Home</a>
+        <a class="nav-link" routerLink="/"
+          ><div class="navItem"><i class="bi bi-house-fill"></i> Home</div></a
+        >
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/products">Products</a>
+        
+          <a class="nav-link navItem" routerLink="/products"><div class="navItem"><i class="bi bi-images"></i> Products</div></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/cart">Cart</a>
+        <div class="navItem">
+          <a class="nav-link" routerLink="/cart"><div class="navItem"><i class="bi bi-cart4"></i> Cart</div></a>
+        </div>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/checkout">Checkout</a>
+        <div class="navItem">
+          <a class="nav-link" routerLink="/checkout"><div class="navItem"><i class="bi bi-truck"></i> Checkout</div></a>
+        </div>
       </li>
     </ul>
   </div>
-  <app-github-search style="margin: 1%;"></app-github-search>
-<app-currency style="margin: 1%;"></app-currency>
-<app-login-buttons style="margin: 1%;"></app-login-buttons>
+  <app-github-search style="margin: 1%"></app-github-search>
+  <app-currency style="margin: 1%"></app-currency>
+  <app-login-buttons style="margin: 1%"></app-login-buttons>
 </nav>

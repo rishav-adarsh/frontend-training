@@ -3,39 +3,44 @@
     <img [src]="cartItemData.productImage" class="img-thumbnail" />
   </div>
   <div class="col-lg-5 col-md-6 mb-4 mb-lg-0">
-    <h4 class="fs-6 my-2">{{ cartItemData.productName | uppercase }}</h4>
+    <h4
+      class="fs-6 my-2"
+      style="font-family: Verdana, Geneva, Tahoma, sans-serif"
+    >
+      {{ cartItemData.productName | uppercase }}
+    </h4>
+    <button type="button" class="btn btn-danger" (click)="deleteItem()"><i class="bi bi-trash-fill"></i></button>
   </div>
   <div class="col-lg-4 col-md-6 mb-4 mb-lg-0 text-md-center">
-    <h4>{{ cartItemData.quantity }}</h4>
+    <!-- <h4>{{ cartItemData.quantity }}</h4> -->
     <div class="d-flex mb-4" style="max-width: 300px">
-        <button
-          class="btn btn-primary px-3 me-2"
-          (click)="deductItem()"
-        >
-          <i class="fas fa-minus"></i>
-        </button>
+      <button class="btn btn-primary px-3 me-2" (click)="deductItem()">
+        <i class="bi bi-dash-lg"></i>
+      </button>
 
-        <div class="form-outline">
-          <input
-            id="form1"
-            min="0"
-            name="quantity"
-            [value]="cartItemData.quantity"
-            type="number"
-            class="form-control"
-          />
-          <!-- <label class="form-label" for="form1">Quantity</label> -->
-        </div>
-
-        <button
-          class="btn btn-primary px-3 ms-2"
-          (click)="addItem()"
-        >
-          <i class="fas fa-plus"></i>
-        </button>
+      <div class="form-outline">
+        <input
+          id="form1"
+          min="0"
+          name="quantity"
+          [value]="cartItemData.quantity"
+          type="number"
+          class="form-control"
+        />
       </div>
-      <p class="text-start text-md-center">
-        <strong>{{ finalPrice }}</strong>
-      </p>
+
+      <button class="btn btn-primary px-3 ms-2" (click)="addItem()">
+        <i class="bi bi-plus-lg"></i>
+      </button>
+    </div>
+    <p class="text-start text-md-center">
+      <strong>
+        <app-product-price
+          [price]="finalPrice"
+          [sellingPrice]="finalSalePrice"
+          [code]="currCode"
+        ></app-product-price>
+      </strong>
+    </p>
   </div>
 </div>
