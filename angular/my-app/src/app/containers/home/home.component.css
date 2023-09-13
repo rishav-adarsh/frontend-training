@@ -1,0 +1,43 @@
+.body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+}
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #3498db;
+}
+
+tr {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 20vh;
+  background-color: #3498db;
+}
+
+p {
+  font-size: 80px;
+  color: #fff;
+  background-color: #333;
+  padding: 50px;
+  border-radius: 5px;
+  font-family: cursive;
+  position: absolute;
+}
+
+.link {
+  text-align: center;
+  position: relative;
+  font-size: 50px;
+}
+
+a {
+    color: white;
+    font-family: cursive;
+    text-decoration: none;
+}

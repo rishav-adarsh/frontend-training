@@ -1,3 +1,12 @@
 input.ng-invalid.ng-touched {
     border: 1px solid red;
 }
+
+.row {
+    width: 60%; 
+    margin: auto;
+}
+
+button {
+    margin: 1%;
+}

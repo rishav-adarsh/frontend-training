@@ -1,11 +1,32 @@
-<p>login works!</p>
+<div class="main">
+<main class="form-signin w-100 m-auto shadow rounded mt-5 bg-light-subtle">
+  <form [formGroup]="loginForm" (submit)="login()">
+    <h1 class="h3 mb-3 fw-normal">Please enter your details to Login</h1>
 
-<form [formGroup]="loginForm" (submit)="login()">
-    <label for>Email</label>
-    <input type="text" formControlName="email">
+    <div class="form-floating">
+      <input
+        type="email"
+        class="form-control"
+        id="floatingInput"
+        placeholder="name@example.com"
+        formControlName="email"
+      />
+      <label for="floatingInput">Email address</label>
+    </div>
+    <div class="form-floating">
+      <input
+        type="password"
+        class="form-control"
+        id="floatingPassword"
+        placeholder="Password"
+        formControlName="password"
+      />
+      <label for="floatingPassword">Password</label>
+    </div>
 
-    <label for>Password</label>
-    <input type="password" formControlName="password">
-
-    <button type="submit">Login</button>
-</form>
+    <button class="btn btn-primary w-100 py-2 mt-4" type="submit">
+      Login
+    </button>
+  </form>
+</main>
+</div>

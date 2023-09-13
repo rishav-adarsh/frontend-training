@@ -34,6 +34,7 @@ import { PaginationPipe } from './pipes/pagination.pipe';
 import { PageButtonsComponent } from './components/page-buttons/page-buttons.component';
 import CartListComponent from './containers/cart-list/cart-list.component';
 import { CartItemComponent } from './components/cart-item/cart-item.component';
+import { HomeComponent } from './containers/home/home.component';
 
 // Decorator() : to define the behaviour of the class
 @NgModule({
@@ -61,6 +62,7 @@ import { CartItemComponent } from './components/cart-item/cart-item.component';
     PageButtonsComponent,
     CartListComponent,
     CartItemComponent,
+    HomeComponent,
   ],
   imports: [
     // eagerly loaded modules
